@@ -1,0 +1,54 @@
+---
+# Installs basic applications packages for DNBX home-work machine
+# Prequisites:
+# 1. xcode
+# 2. brew
+- hosts: localhost
+  tasks:
+  - name: taps
+    homebrew_tap: tap={{ item }}
+    with_items:
+      - homebrew/dupes
+      - homebrew/versions
+      - caskroom/cask
+      - caskroom/versions
+  - name: brewing
+    homebrew: name={{ item }} 
+    with_items: 
+      - brew-cask
+      - bash-completion
+      - curl
+      - git
+      - openssl
+      - scala
+      - sbt
+      - ruby
+      - reattach-to-user-namespace
+      - byobu
+      - unrar
+      - wget
+      - zlib
+      - ssh-copy-id
+      - docker
+  - name: casking (sudo)
+    sudo: true
+    homebrew_cask: name={{ item }}
+    with_items:
+      - google-chrome
+      - intellij-idea
+      - iterm2
+      - java7
+      - forklift
+      - keepassx
+      - transmission
+      - vlc
+      - dropbox
+      - google-drive
+      - vagrant
+      - calibre
+      - parallels
+      - virtualbox
+      - little-snitch
+      - flux
+      - arduino-beta #v1.5
+    
