@@ -17,7 +17,7 @@
       - { src: "{{ CONFIGS }}/bash_aliases", dest: "{{ ansible_env.HOME }}/.bash_aliases" }
 #      - { src: "{{ CONFIGS }}/tmux.conf", dest: "{{ ansible_env.HOME }}/.byobu/.tmux.conf" }
       - { src: "{{ CONFIGS }}/vim", dest: "{{ ansible_env.HOME }}/.vim" }
-      - { src: "{{ CONFIGS }}/dbvim", dest: "{{ ansible_env.HOME }}/.dbvis" }
+      - { src: "{{ CONFIGS }}/dbvis", dest: "{{ ansible_env.HOME }}/.dbvis" }
       - { src: "{{ CONFIGS }}/ssh", dest: "{{ ansible_env.HOME }}/.ssh" }
 
   - name: find Idea
