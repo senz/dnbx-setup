@@ -31,7 +31,7 @@
     when: idea_path|success
   
   - name: set idea vm max mem
-    lineinfile: dest="{{ idea_path.stdout|replace("MacOS/idea", "bin/idea.properties") }}" line="-Xmx2048m"
+    lineinfile: dest="{{ idea_path.stdout|replace("MacOS/idea", "bin/idea.vmoptions") }}" line="-Xmx2048m"
     when: idea_path|success
     
   vars:
