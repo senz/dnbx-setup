@@ -29,5 +29,10 @@
   - name: idea config path
     lineinfile: dest="{{ idea_path.stdout|replace("MacOS/idea", "bin/idea.properties") }}" line="idea.config.path={{ CONFIGS }}/idea13-config"
     when: idea_path|success
+  
+  - name: set idea vm max mem
+    lineinfile: dest="{{ idea_path.stdout|replace("MacOS/idea", "bin/idea.properties") }}" line="-Xmx2048m"
+    when: idea_path|success
+    
   vars:
     - CONFIGS: "{{ ansible_env.HOME }}/Dropbox/configs"
