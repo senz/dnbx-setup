@@ -21,7 +21,7 @@
       - { src: "{{ CONFIGS }}/ssh", dest: "{{ ansible_env.HOME }}/.ssh" }
 
   - name: find Idea
-    command: find /Applications -name idea -print
+    command: find -L -f {{ ansible_env.HOME }}/Applications /Applications -name idea -print -quit
     register: idea_path
     ignore_errors: True
     changed_when: false
