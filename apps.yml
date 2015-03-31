@@ -29,14 +29,13 @@
       - wget
       - zlib
       - ssh-copy-id
-      - docker
+      - p7zip
   - name: casking (sudo)
     sudo: true
     homebrew_cask: name={{ item }}
     with_items:
       - google-chrome
       - intellij-idea
-      - iterm2
       - java7
       - forklift
       - keepassx
@@ -46,7 +45,6 @@
       - google-drive
       - vagrant
       - calibre
-      - parallels
       - virtualbox
       - little-snitch
       - flux
@@ -54,4 +52,5 @@
       - xquartz
       - wireshark
       - firefoxdeveloperedition
-      
+      - jdiskreport
+      - viscosity
