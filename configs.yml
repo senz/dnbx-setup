@@ -33,6 +33,12 @@
   - name: set idea vm max mem
     lineinfile: dest="{{ idea_path.stdout|replace("MacOS/idea", "bin/idea.vmoptions") }}" line="-Xmx2048m"
     when: idea_path|success
+  
+  - name: set idea jdk to 1.7
+    lineinfile: dest="{{ idea_path.stdout|replace("MacOS/idea", "bin/idea.properties") }}" line="JVMVersion=1.7*"
+    args:
+        regexp: '^JVMVersion=\d\.\d\*$'
+    when: idea_path|success
     
   vars:
     - CONFIGS: "{{ ansible_env.HOME }}/Dropbox/configs"
